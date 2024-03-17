@@ -1,16 +1,25 @@
 loadstring(game:HttpGet"https://raw.githubusercontent.com/HtB1526/ArceusX_Scripts/main/Scripts/vulnerabilitie%20patcher.lua")()
 
-local plr = game:GetService("Players").LocalPlayer
-
-getgenv().Anti = true -- Re-Execute if you change it
-
-local Anti
-Anti = hookmetamethod(game, "__namecall", function(self, ...)
-        if self == plr and getnamecallmethod():lower() == "kick" and getgenv().Anti then
-            return warn("[ANTI-KICK] Client Tried To Call Kick Function On LocalPlayer")
+local old
+old = hookmetamethod(
+    game,
+    "__namecall",
+    function(self, ...)
+        local method = tostring(getnamecallmethod())
+        if string.lower(method) == "kick" then
+            return wait(9e9)
         end
-        return Anti(self, ...)
-    end)
+        return old(self, ...)
+    end
+)
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/raavenkkj/anti-kick/main/anti-kick.lua"))()
+getgenv().AntiKick = true
+getgenv().Notifications = false
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Next1x/Nextix./main/UniversalACBypass"))()
+
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Adonis-Anti-Cheat-Bypass-6995"))()
 
 local h = Instance.new("ScreenGui")
 local Main = Instance.new("ImageLabel")
