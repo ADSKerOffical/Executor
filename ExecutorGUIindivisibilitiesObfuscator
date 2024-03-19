@@ -57,14 +57,26 @@ TextBox.TextWrapped = true
 TextButton.Parent = Main
 TextButton.BackgroundColor3 = Color3.fromRGB(0, 99, 0)
 TextButton.BorderSizePixel = 0
-TextButton.Position = UDim2.new(0.1, 0, 0.67, 0)
-TextButton.Size = UDim2.new(0.8, 0, 0.22, 0)
+TextButton.Position = UDim2.new(0.07, 0, 0.67, 0)
+TextButton.Size = UDim2.new(0.4, 0, 0.22, 0)
 TextButton.Font = Enum.Font.SourceSans
 TextButton.Text = "Execute script"
 TextButton.TextColor3 = Color3.fromRGB(0, 255, 0)
 TextButton.TextScaled = true
 TextButton.TextSize = 14.000
 TextButton.TextWrapped = true
+
+Text1Button.Parent = Main
+Text1Button.BackgroundColor3 = Color3.fromRGB(0, 99, 0)
+Text1Button.BorderSizePixel = 0
+Text1Button.Position = UDim2.new(0.53, 0, 0.67, 0)
+Text1Button.Size = UDim2.new(0.4, 0, 0.22, 0)
+Text1Button.Font = Enum.Font.SourceSans
+Text1Button.Text = "Clear Text"
+Text1Button.TextColor3 = Color3.fromRGB(0, 255, 0)
+Text1Button.TextScaled = true
+Text1Button.TextSize = 14.000
+Text1Button.TextWrapped = true
 
 TextButton.MouseButton1Click:Connect(function()
     local maliciousCode = TextBox.Text
@@ -73,8 +85,12 @@ TextButton.MouseButton1Click:Connect(function()
     end)
 
     if not success then
-        error("Error in script execution: " .. tostring(errorMessage))
+        warn("Error in script execution: " .. tostring(errorMessage))
     end
+end)
+
+Text1Button.MouseButton1Click:Connect(function()
+   TextBox.Text = ""
 end)
 
 local closeButton = Instance.new("TextButton")
