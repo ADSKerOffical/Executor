@@ -100,4 +100,4 @@ Anti = hookmetamethod(game, "__namecall", function(self, ...)
         return Anti(self, ...)
     end)
 
-loadstring(game:HttpGet"https://raw.githubusercontent.com/HtB1526/ArceusX_Scripts/main/Scripts/vulnerabilitie%20patcher.lua")()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Next1x/Nextix./main/UniversalACBypass"))()
