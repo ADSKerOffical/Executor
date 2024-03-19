@@ -72,7 +72,7 @@ TextButton.MouseButton1Click:Connect(function()
     end)
 
     if not success then
-        warn("Error in script execution: " .. tostring(errorMessage))
+        error("Error in script execution: " .. tostring(errorMessage))
     end
 end)
 
@@ -86,3 +86,15 @@ closeButton.Parent = Main
 closeButton.MouseButton1Click:Connect(function()
 h:Destroy()
 end)
+
+local plrddfg = game:GetService("Players").LocalPlayer
+
+getgenv().Anti = true -- Re-Execute if you change it
+
+local Anti
+Anti = hookmetamethod(game, "__namecall", function(self, ...)
+        if self == plrddfg and getnamecallmethod():lower() == "kick" and getgenv().Anti then
+            return warn("[ANTI-KICK] Client Tried To Call Kick Function On LocalPlayer")
+        end
+        return Anti(self, ...)
+    end)
