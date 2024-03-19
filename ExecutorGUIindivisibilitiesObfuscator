@@ -103,17 +103,3 @@ closeButton.Parent = Main
 closeButton.MouseButton1Click:Connect(function()
 h:Destroy()
 end)
-
-local plrddfg = game:GetService("Players").LocalPlayer
-
-getgenv().Anti = true -- Re-Execute if you change it
-
-local Anti
-Anti = hookmetamethod(game, "__namecall", function(self, ...)
-        if self == plrddfg and getnamecallmethod():lower() == "kick" and getgenv().Anti then
-            return warn("[ANTI-KICK] Client Tried To Call Kick Function On LocalPlayer")
-        end
-        return Anti(self, ...)
-    end)
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Next1x/Nextix./main/UniversalACBypass"))()
