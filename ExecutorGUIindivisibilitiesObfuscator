@@ -1,13 +1,3 @@
-loadstring(game:HttpGet"https://raw.githubusercontent.com/HtB1526/ArceusX_Scripts/main/Scripts/vulnerabilitie%20patcher.lua")()
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/raavenkkj/anti-kick/main/anti-kick.lua"))()
-getgenv().AntiKick = true
-getgenv().Notifications = false
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Next1x/Nextix./main/UniversalACBypass"))()
-
-loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Adonis-Anti-Cheat-Bypass-6995"))()
-
 local h = Instance.new("ScreenGui")
 local Main = Instance.new("ImageLabel")
 local Top = Instance.new("Frame")
