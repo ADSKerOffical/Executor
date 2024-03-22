@@ -79,14 +79,17 @@ Text1Button.TextSize = 14.000
 Text1Button.TextWrapped = true
 
 TextButton.MouseButton1Click:Connect(function()
-    local maliciousCode = TextBox.Text
-    local success, errorMessage = pcall(function()
-        loadstring(maliciousCode)()
-    end)
-
-    if not success then
-        warn("Error in script execution: " .. tostring(errorMessage))
+    local scriptToRun = TextBox.Text
+local function runScript()
+    local func, errorMsg = loadstring(scriptToRun)
+    if func then
+        func()
+    else
+        warn(errorMsg)
     end
+end
+
+runScript()
 end)
 
 Text1Button.MouseButton1Click:Connect(function()
